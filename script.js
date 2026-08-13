@@ -1,114 +1,138 @@
 (() => {
-  const header = document.querySelector(".site-header");
-  const menuButton = document.querySelector(".menu-button");
-  const nav = document.querySelector(".main-nav");
-  const navLinks = document.querySelectorAll(".main-nav a");
+  const header = document.querySelector(".header");
+  const menu = document.querySelector(".menu");
+  const nav = document.querySelector(".nav");
 
-  const onScroll = () => {
-    header.classList.toggle("scrolled", window.scrollY > 18);
-  };
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  const updateHeader = () => header.classList.toggle("scrolled", scrollY > 15);
+  updateHeader();
+  addEventListener("scroll", updateHeader, {passive:true});
 
-  menuButton?.addEventListener("click", () => {
-    const open = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!open));
-    menuButton.setAttribute("aria-label", open ? "メニューを開く" : "メニューを閉じる");
+  menu?.addEventListener("click", () => {
+    const open = menu.getAttribute("aria-expanded") === "true";
+    menu.setAttribute("aria-expanded", String(!open));
     nav.classList.toggle("open", !open);
   });
+  document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menu?.setAttribute("aria-expanded","false");
+  }));
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menuButton?.setAttribute("aria-expanded", "false");
-      menuButton?.setAttribute("aria-label", "メニューを開く");
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); }
     });
-  });
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -30px 0px" }
-  );
-
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  }, {threshold:.1, rootMargin:"0px 0px -25px"});
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Lightweight particle network background.
-  const canvas = document.getElementById("network-canvas");
+  // Background particle network
+  const canvas = document.getElementById("network");
   const ctx = canvas.getContext("2d");
-  let nodes = [];
-  let raf = 0;
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.floor(innerWidth * dpr);
-    canvas.height = Math.floor(innerHeight * dpr);
-    canvas.style.width = innerWidth + "px";
-    canvas.style.height = innerHeight + "px";
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    const count = Math.max(16, Math.min(44, Math.floor(innerWidth / 34)));
-    nodes = Array.from({ length: count }, () => ({
-      x: Math.random() * innerWidth,
-      y: Math.random() * innerHeight,
-      vx: (Math.random() - 0.5) * 0.14,
-      vy: (Math.random() - 0.5) * 0.14,
-      r: Math.random() * 1.2 + 0.35
-    }));
+  let pts = [], raf = 0;
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function resize(){
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = innerWidth*dpr; canvas.height = innerHeight*dpr;
+    canvas.style.width = innerWidth+"px"; canvas.style.height = innerHeight+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.max(16, Math.min(42, Math.floor(innerWidth/36)));
+    pts = Array.from({length:n},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.13,vy:(Math.random()-.5)*.13,r:Math.random()+.35}));
   }
-
-  function draw() {
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-    for (let i = 0; i < nodes.length; i++) {
-      const a = nodes[i];
-      if (!reducedMotion) {
-        a.x += a.vx;
-        a.y += a.vy;
-        if (a.x < -30) a.x = innerWidth + 30;
-        if (a.x > innerWidth + 30) a.x = -30;
-        if (a.y < -30) a.y = innerHeight + 30;
-        if (a.y > innerHeight + 30) a.y = -30;
+  function draw(){
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    pts.forEach((a,i)=>{
+      if(!reduced){a.x+=a.vx;a.y+=a.vy;if(a.x<-20)a.x=innerWidth+20;if(a.x>innerWidth+20)a.x=-20;if(a.y<-20)a.y=innerHeight+20;if(a.y>innerHeight+20)a.y=-20}
+      ctx.beginPath();ctx.fillStyle="rgba(103,224,255,.42)";ctx.arc(a.x,a.y,a.r,0,Math.PI*2);ctx.fill();
+      for(let j=i+1;j<pts.length;j++){
+        const b=pts[j], d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<145){ctx.beginPath();ctx.strokeStyle=`rgba(76,165,255,${.08*(1-d/145)})`;ctx.lineWidth=.7;ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
       }
+    });
+    if(!reduced) raf=requestAnimationFrame(draw);
+  }
+  resize(); draw();
+  addEventListener("resize",()=>{cancelAnimationFrame(raf);resize();draw()});
 
-      ctx.beginPath();
-      ctx.fillStyle = "rgba(103, 224, 255, 0.45)";
-      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-      ctx.fill();
+  // DATA TOHOKU dashboard
+  const data = window.TOHOKU_DATA;
+  if(!data) return;
 
-      for (let j = i + 1; j < nodes.length; j++) {
-        const b = nodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const dist = Math.hypot(dx, dy);
-        if (dist < 145) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(76, 165, 255, ${0.09 * (1 - dist / 145)})`;
-          ctx.lineWidth = 0.7;
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
+  let selectedPref = "miyagi";
+  let selectedMetric = "population";
+
+  const prefButtons = [...document.querySelectorAll(".pref-buttons button")];
+  const mapPaths = [...document.querySelectorAll(".click-map path")];
+  const metricButtons = [...document.querySelectorAll(".metric-tabs button")];
+  const prefTitle = document.getElementById("pref-title");
+  const metricLabel = document.getElementById("metric-label");
+  const metricValue = document.getElementById("metric-value");
+  const metricDesc = document.getElementById("metric-desc");
+  const compareTitle = document.getElementById("compare-title");
+  const compareNote = document.getElementById("compare-note");
+  const compareBars = document.getElementById("compare-bars");
+  const sourceName = document.getElementById("source-name");
+  const sourceLink = document.getElementById("source-link");
+
+  const fmt = (value, metric, withUnit=true) => {
+    const m = data.meta[metric], d = m.decimals ?? 0;
+    const num = Number(value).toLocaleString("ja-JP",{minimumFractionDigits:d,maximumFractionDigits:d});
+    return withUnit ? `${num} ${m.unit}` : num;
+  };
+
+  const widthFor = (value, metric, values) => {
+    if(metric === "populationChange"){
+      const min=Math.min(...values), max=Math.max(...values), span=Math.max(max-min,.0001);
+      return 18 + ((value-min)/span)*82;
     }
+    const max=Math.max(...values);
+    return max ? Math.max(3,(value/max)*100) : 0;
+  };
 
-    if (!reducedMotion) raf = requestAnimationFrame(draw);
+  function render(){
+    const p = data.prefectures.find(x=>x.id===selectedPref);
+    const m = data.meta[selectedMetric];
+    const values = data.prefectures.map(x=>Number(x[selectedMetric]));
+    const value = Number(p[selectedMetric]);
+
+    prefTitle.textContent = `${p.name} / ${p.en}`;
+    metricLabel.textContent = `${m.shortLabel} / ${m.period}`;
+    metricValue.innerHTML = `${fmt(value,selectedMetric,false)} <em>${m.unit}</em>`;
+    metricDesc.textContent = m.description;
+    compareTitle.textContent = `${m.label} / ${m.period}`;
+    compareNote.textContent = m.note;
+    sourceName.textContent = m.source;
+    sourceLink.href = m.url;
+
+    compareBars.innerHTML = data.prefectures.map(x=>{
+      const v = Number(x[selectedMetric]);
+      const w = widthFor(v,selectedMetric,values);
+      return `<div class="compare-row${x.id===selectedPref?" selected":""}">
+        <span class="label">${x.name.replace("県","")}</span>
+        <div class="track"><div class="fill" style="--w:${w.toFixed(2)}%"></div></div>
+        <span class="value">${fmt(v,selectedMetric)}</span>
+      </div>`;
+    }).join("");
+
+    prefButtons.forEach(b=>b.classList.toggle("active",b.dataset.pref===selectedPref));
+    mapPaths.forEach(p=>p.classList.toggle("active",p.dataset.pref===selectedPref));
+    metricButtons.forEach(b=>{
+      const active=b.dataset.metric===selectedMetric;
+      b.classList.toggle("active",active);
+      b.setAttribute("aria-selected",String(active));
+    });
   }
 
-  resize();
-  draw();
+  const choosePref = id => {
+    if(data.prefectures.some(x=>x.id===id)){ selectedPref=id; render(); }
+  };
 
-  window.addEventListener("resize", () => {
-    cancelAnimationFrame(raf);
-    resize();
-    draw();
+  prefButtons.forEach(b=>b.addEventListener("click",()=>choosePref(b.dataset.pref)));
+  mapPaths.forEach(p=>{
+    p.setAttribute("tabindex","0");p.setAttribute("role","button");
+    p.addEventListener("click",()=>choosePref(p.dataset.pref));
+    p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();choosePref(p.dataset.pref)}});
   });
+  metricButtons.forEach(b=>b.addEventListener("click",()=>{selectedMetric=b.dataset.metric;render()}));
+
+  render();
 })();

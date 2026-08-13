@@ -1,66 +1,88 @@
-# 東北データラボ Webサイト
+# 東北データラボ Webサイト V2
 
-GitHub Pages にそのまま公開できる、静的HTML/CSS/JavaScript構成です。
+GitHub Pagesへそのままアップロードできる静的サイトです。
+
+## V2で追加した機能
+
+- 東北6県のクリック選択
+- 指標タブ切替
+- 6県比較棒グラフ
+- 選択県のハイライト
+- 公的統計の出典表示
+- 一次資料へのリンク
+- `data.js` にデータを分離し、更新を容易化
+- PC / タブレット / スマートフォン対応
+- 外部ライブラリ不要
+
+## 実装済みの公的データ
+
+### 人口
+総務省統計局「令和7年国勢調査 人口速報集計」
+
+- 2025年10月1日現在人口
+- 2020年→2025年の人口増減率
+- 2025年人口密度
+
+一次資料:
+https://www.stat.go.jp/data/kokusei/2025/kekka/pdf/outline.pdf
+
+### 観光
+東北運輸局／観光庁「宿泊旅行統計調査」
+
+- 2025年1〜12月 外国人延べ宿泊者数
+- 2024年同期比
+
+一次資料:
+https://wwwtb.mlit.go.jp/tohoku/content/000371363.pdf
+
+※ 2025年宿泊値は各月の第2次速報値を累計したものです。
 
 ## ファイル構成
 
 ```text
-tohoku-data-lab/
+tohoku-data-lab-v2/
 ├── index.html
 ├── styles.css
+├── data.js
 ├── script.js
 ├── .nojekyll
 ├── 404.html
 ├── README.md
 └── assets/
-    ├── favicon.svg
     ├── logo.svg
+    ├── favicon.svg
     └── tohoku-outline.svg
 ```
 
-## GitHub Pagesで公開する方法
+## GitHub Pagesで公開
 
-1. GitHubで新しいリポジトリを作成します。
-2. このフォルダ内のファイルを、リポジトリのルートへアップロードします。
-3. GitHubリポジトリの `Settings` → `Pages` を開きます。
-4. `Build and deployment` の Source で `Deploy from a branch` を選択します。
-5. Branch を `main`、Folder を `/(root)` に設定して保存します。
-6. 公開URLが表示されたら完了です。
+1. GitHubで新規リポジトリを作成
+2. ZIPを展開し、中のファイルをリポジトリのルートへアップロード
+3. `Settings` → `Pages`
+4. `Build and deployment` の Source を `Deploy from a branch`
+5. Branch を `main`
+6. Folder を `/(root)`
+7. `Save`
 
-## 公開前に必ず変更する箇所
+## 公開前の変更
 
-### 1. お問い合わせメール
-`index.html` 内を検索して、以下を実際のメールアドレスへ変更してください。
-
-```html
-YOUR-EMAIL@example.com
-```
+### 1. 問い合わせメール
+`index.html` の `YOUR-EMAIL@example.com` を実際の問い合わせ先へ変更してください。
 
 ### 2. ロゴ
-現在の `assets/logo.svg` は、このサイト用に作成した仮ロゴです。
-正式な東北データラボのロゴがある場合は、同じファイル名 `logo.svg` で差し替えるとレイアウトを維持できます。
+`assets/logo.svg` はサイト用の仮ロゴです。
+正式ロゴを同名ファイルで差し替えると、HTML側の変更なしで置き換えられます。
 
-### 3. DATA TOHOKUの統計値
-現在はデザイン確認用のデモ表示です。
-具体的な人口・雇用・産業データを掲載する際は、総務省統計局・e-Stat・RESAS等の最新一次情報を確認し、出典を明記してください。
+## データ更新方法
 
-## 技術仕様
+数値と出典情報はすべて `data.js` にあります。
+新しい公表値が出た場合は、県別の値と `meta` の期間・説明・URLを更新してください。
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- 外部ライブラリなし
-- GitHub Pages対応
-- PC / Tablet / Smartphone レスポンシブ対応
-- prefers-reduced-motion対応
+## 次の拡張候補
 
-## ローカルで確認する方法
-
-ファイルを直接開いても基本的に表示できます。
-簡易HTTPサーバーを使う場合:
-
-```bash
-python3 -m http.server 8000
-```
-
-その後、ブラウザで `http://localhost:8000` を開きます。
+- 令和6年経済センサス-基礎調査による事業所・従業者データ追加
+- 市町村レベルの地図・指標
+- CSV / JSONからの読込
+- GitHub Actionsによるデータ更新
+- INSIGHTS記事ページ
+- 問い合わせフォーム連携

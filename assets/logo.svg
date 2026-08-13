@@ -1,16 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="TOHOKU DATA LAB">
-  <defs>
-    <linearGradient id="g" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5CF6FF"/>
-      <stop offset=".55" stop-color="#168BFF"/>
-      <stop offset="1" stop-color="#705BFF"/>
-    </linearGradient>
-  </defs>
-  <path d="M40 5 70 22v36L40 75 10 58V22Z" fill="#071321" stroke="url(#g)" stroke-width="2"/>
-  <path d="M25 27 40 18l15 9v17L40 53 25 44Z" fill="none" stroke="url(#g)" stroke-width="2"/>
-  <circle cx="40" cy="18" r="3.5" fill="#69F5FF"/>
-  <circle cx="25" cy="27" r="3.5" fill="#3DABFF"/>
-  <circle cx="55" cy="27" r="3.5" fill="#3DABFF"/>
-  <circle cx="40" cy="53" r="3.5" fill="#796AFF"/>
-  <path d="M25 27 40 37l15-10M40 37v16" stroke="#7BEFFF" stroke-width="1.5" opacity=".85"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" role="img" aria-label="TOHOKU DATA LAB">
+<defs><linearGradient id="g" x1="5" y1="5" x2="83" y2="83"><stop stop-color="#67f4ff"/><stop offset=".52" stop-color="#188cff"/><stop offset="1" stop-color="#765bff"/></linearGradient></defs>
+<path d="M44 5 76 23.5v41L44 83 12 64.5v-41Z" fill="#071423" stroke="url(#g)" stroke-width="2"/>
+<path d="M27 29 44 19l17 10v20L44 59 27 49Z" fill="none" stroke="url(#g)" stroke-width="2"/>
+<path d="M27 29 44 40l17-11M44 40v19" fill="none" stroke="#77f3ff" stroke-width="1.6"/>
+<circle cx="44" cy="19" r="3.5" fill="#6af5ff"/><circle cx="27" cy="29" r="3.5" fill="#2f9fff"/><circle cx="61" cy="29" r="3.5" fill="#2f9fff"/><circle cx="44" cy="59" r="3.5" fill="#8069ff"/>
 </svg>
