@@ -1,0 +1,16 @@
+TOHOKU MAP SHAPE NOTICE
+
+The prefectural outlines used in:
+- assets/tohoku-outline.svg
+- the inline DATA TOHOKU map in index.html
+
+are adapted from:
+Geolonia / japanese-prefectures
+https://github.com/geolonia/japanese-prefectures
+
+The upstream README states that the SVG map is based on
+Wikipedia "日本地図.svg" and is licensed under GFDL.
+
+Only the map geometry is derived from that source.
+The surrounding website design, styling, content, and interactions
+are part of the Tohoku Data Lab website code.

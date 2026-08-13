@@ -86,3 +86,17 @@ tohoku-data-lab-v2/
 - GitHub Actionsによるデータ更新
 - INSIGHTS記事ページ
 - 問い合わせフォーム連携
+
+
+## 地図形状について（V3）
+
+トップページおよび `DATA TOHOKU` の東北6県地図は、
+Geolonia `japanese-prefectures` の SVG 日本地図から
+青森・岩手・宮城・秋田・山形・福島の6県形状を抽出し、
+東北データラボのデザインに合わせて加工しています。
+
+Source:
+https://github.com/geolonia/japanese-prefectures
+
+Geolonia の README では、当該SVGは Wikipedia「日本地図.svg」をベースとし、
+GFDL とされています。公開・再配布時は元データのライセンス条件も確認してください。

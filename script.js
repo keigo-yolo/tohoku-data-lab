@@ -61,7 +61,7 @@
   let selectedMetric = "population";
 
   const prefButtons = [...document.querySelectorAll(".pref-buttons button")];
-  const mapPaths = [...document.querySelectorAll(".click-map path")];
+  const mapPaths = [...document.querySelectorAll(".click-map [data-pref]")];
   const metricButtons = [...document.querySelectorAll(".metric-tabs button")];
   const prefTitle = document.getElementById("pref-title");
   const metricLabel = document.getElementById("metric-label");
