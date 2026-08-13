@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="東北データラボ — データ分析・可視化・AI活用で、東北の意思決定を支援します。" />
+  <meta name="theme-color" content="#06101f" />
+  <meta property="og:title" content="東北データラボ | TOHOKU DATA LAB" />
+  <meta property="og:description" content="データで、東北の未来をつくる。" />
+  <meta property="og:type" content="website" />
+  <title>東北データラボ | TOHOKU DATA LAB</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="network-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="東北データラボ ホーム">
+      <img src="./assets/logo.svg" alt="" width="42" height="42" />
+      <span>
+        <strong>TOHOKU DATA LAB</strong>
+        <small>東北データラボ</small>
+      </span>
+    </a>
+
+    <button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" aria-label="メインナビゲーション">
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#data-tohoku">DATA TOHOKU</a>
+      <a href="#insights">INSIGHTS</a>
+      <a class="nav-cta" href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="dot"></span> DATA × TOHOKU × FUTURE</p>
+        <h1>
+          東北を、<br />
+          <span class="gradient-text">データでもっと強く。</span>
+        </h1>
+        <p class="hero-lead">
+          データ分析・可視化・AI活用によって、<br class="desktop-only" />
+          地域と企業の意思決定を支援する。
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#services">できることを見る <span>→</span></a>
+          <a class="button button-ghost" href="#about">私たちについて</a>
+        </div>
+        <div class="hero-meta">
+          <div><span>FOCUS</span><strong>LOCAL DATA</strong></div>
+          <div><span>AREA</span><strong>TOHOKU</strong></div>
+          <div><span>METHOD</span><strong>DATA / AI</strong></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="map-orbit orbit-1"></div>
+        <div class="map-orbit orbit-2"></div>
+        <div class="map-grid"></div>
+
+        <svg class="tohoku-map" viewBox="0 0 500 620" role="img" aria-label="東北地方をモチーフにしたデータビジュアル">
+          <defs>
+            <linearGradient id="mapGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#55f5ff"/>
+              <stop offset="55%" stop-color="#178cff"/>
+              <stop offset="100%" stop-color="#7758ff"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="8" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <g class="prefectures" fill="url(#mapGradient)" fill-opacity=".16" stroke="url(#mapGradient)" stroke-width="2.3" filter="url(#glow)">
+            <path d="M190 42 L312 35 L348 80 L342 142 L305 176 L210 169 L166 125 Z"/>
+            <path d="M245 179 L347 165 L382 205 L370 315 L319 350 L252 317 L229 247 Z"/>
+            <path d="M156 168 L224 179 L225 253 L199 315 L126 300 L99 235 Z"/>
+            <path d="M238 323 L317 356 L310 443 L260 467 L207 438 L203 364 Z"/>
+            <path d="M124 309 L195 324 L194 390 L155 429 L92 395 L88 343 Z"/>
+            <path d="M181 437 L260 477 L286 551 L245 587 L154 554 L130 489 Z"/>
+          </g>
+
+          <g class="data-lines" fill="none" stroke="#55f5ff" stroke-opacity=".55" stroke-width="1.4">
+            <path d="M255 100 C215 170 298 225 282 280 C263 345 176 373 178 480"/>
+            <path d="M260 100 C301 190 195 240 180 350 C172 410 226 450 213 520"/>
+            <path d="M145 235 C215 255 250 280 325 255"/>
+            <path d="M130 350 C198 338 246 390 302 405"/>
+          </g>
+
+          <g class="nodes" fill="#bffcff" stroke="#0f77ff" stroke-width="2">
+            <circle cx="255" cy="100" r="7"/>
+            <circle cx="300" cy="235" r="6"/>
+            <circle cx="145" cy="235" r="6"/>
+            <circle cx="270" cy="380" r="7"/>
+            <circle cx="140" cy="355" r="6"/>
+            <circle cx="205" cy="510" r="7"/>
+          </g>
+        </svg>
+
+        <div class="floating-stat stat-a"><span>DATA POINTS</span><strong>01</strong></div>
+        <div class="floating-stat stat-b"><span>ANALYSIS</span><strong>ACTIVE</strong></div>
+        <div class="floating-stat stat-c"><span>REGION</span><strong>TOHOKU</strong></div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="キーワード">
+      <div class="ticker-track">
+        <span>DATA ANALYTICS</span><i>+</i><span>VISUALIZATION</span><i>+</i><span>AI</span><i>+</i>
+        <span>LOCAL ECONOMY</span><i>+</i><span>DX</span><i>+</i><span>TOHOKU</span><i>+</i>
+        <span>DATA ANALYTICS</span><i>+</i><span>VISUALIZATION</span><i>+</i><span>AI</span><i>+</i>
+        <span>LOCAL ECONOMY</span><i>+</i><span>DX</span><i>+</i><span>TOHOKU</span><i>+</i>
+      </div>
+    </section>
+
+    <section class="section problem" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 / WHY DATA</p>
+        <h2>地域の課題を、<br /><span>見える形にする。</span></h2>
+      </div>
+
+      <div class="problem-grid">
+        <article class="problem-card reveal">
+          <span class="card-number">01</span>
+          <h3>人口・地域</h3>
+          <p>人口構造や地域特性をデータで捉え、施策検討の土台をつくります。</p>
+          <div class="mini-chart bars">
+            <i style="--h: 82%"></i><i style="--h: 67%"></i><i style="--h: 53%"></i><i style="--h: 43%"></i><i style="--h: 35%"></i>
+          </div>
+        </article>
+
+        <article class="problem-card reveal">
+          <span class="card-number">02</span>
+          <h3>人手・業務</h3>
+          <p>業務量やプロセスを可視化し、改善すべきポイントを明らかにします。</p>
+          <div class="mini-chart pulse-chart"><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+
+        <article class="problem-card reveal">
+          <span class="card-number">03</span>
+          <h3>経営・産業</h3>
+          <p>売上・顧客・商品などのデータから、意思決定につながる示唆を抽出します。</p>
+          <div class="mini-chart line-chart">
+            <svg viewBox="0 0 200 65" aria-hidden="true"><polyline points="0,53 35,45 67,49 105,27 140,33 200,8"/></svg>
+          </div>
+        </article>
+
+        <article class="problem-card reveal">
+          <span class="card-number">04</span>
+          <h3>行政・DX</h3>
+          <p>データとデジタル技術を組み合わせ、より良い公共サービスを考えます。</p>
+          <div class="mini-chart rings"><i></i><i></i><i></i></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section solution">
+      <div class="solution-panel reveal">
+        <div class="section-heading">
+          <p class="eyebrow">02 / APPROACH</p>
+          <h2>勘や経験に、<br /><span>データという根拠を。</span></h2>
+        </div>
+
+        <div class="flow">
+          <div class="flow-item">
+            <span>01</span><strong>課題</strong><small>PROBLEM</small>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <span>02</span><strong>収集</strong><small>COLLECT</small>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <span>03</span><strong>可視化</strong><small>VISUALIZE</small>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">
+            <span>04</span><strong>分析</strong><small>ANALYZE</small>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item active">
+            <span>05</span><strong>意思決定</strong><small>DECIDE</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 / SERVICES</p>
+        <h2>データを、<br /><span>行動につなげる。</span></h2>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">∑</div>
+          <p class="service-index">SERVICE 01</p>
+          <h3>データ分析</h3>
+          <p>売上、顧客、業務、地域統計などを整理・分析し、課題の構造を明らかにします。</p>
+          <ul>
+            <li>現状分析・課題抽出</li>
+            <li>統計分析</li>
+            <li>KPI設計</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal featured">
+          <div class="service-icon">◫</div>
+          <p class="service-index">SERVICE 02</p>
+          <h3>データ可視化</h3>
+          <p>複雑なデータを直感的に理解できるダッシュボードやレポートへ変換します。</p>
+          <ul>
+            <li>ダッシュボード</li>
+            <li>データストーリーテリング</li>
+            <li>定例レポート</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">⌘</div>
+          <p class="service-index">SERVICE 03</p>
+          <h3>DX・AI活用支援</h3>
+          <p>業務課題を整理し、AIやデジタル技術を使うべきポイントを一緒に設計します。</p>
+          <ul>
+            <li>業務プロセス整理</li>
+            <li>AI活用検討</li>
+            <li>データ活用基盤づくり</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section data-tohoku" id="data-tohoku">
+      <div class="data-shell reveal">
+        <div class="data-copy">
+          <p class="eyebrow">04 / DATA TOHOKU</p>
+          <h2>東北を、<br /><span>データで見る。</span></h2>
+          <p>
+            人口、産業、観光、雇用。地域に存在するデータをつなぎ、
+            東北の「いま」と「これから」を考えるための視点をつくります。
+          </p>
+          <p class="note">※ 現在はデモ表示です。公開時に公的統計データへ接続できます。</p>
+        </div>
+
+        <div class="dashboard">
+          <div class="dashboard-top">
+            <div>
+              <small>REGIONAL DATA VIEW</small>
+              <strong>TOHOKU / 06 PREFECTURES</strong>
+            </div>
+            <span class="live"><i></i> DEMO</span>
+          </div>
+
+          <div class="dashboard-body">
+            <div class="dashboard-map">
+              <img src="./assets/tohoku-outline.svg" alt="東北地方の地図イメージ" />
+              <span class="map-pin p1">AOMORI</span>
+              <span class="map-pin p2">AKITA</span>
+              <span class="map-pin p3">IWATE</span>
+              <span class="map-pin p4">YAMAGATA</span>
+              <span class="map-pin p5">MIYAGI</span>
+              <span class="map-pin p6">FUKUSHIMA</span>
+            </div>
+
+            <div class="dashboard-metrics">
+              <div class="metric">
+                <span>POPULATION</span>
+                <strong>DATA</strong>
+                <div class="metric-bar"><i style="--w:72%"></i></div>
+              </div>
+              <div class="metric">
+                <span>INDUSTRY</span>
+                <strong>DATA</strong>
+                <div class="metric-bar"><i style="--w:57%"></i></div>
+              </div>
+              <div class="metric">
+                <span>TOURISM</span>
+                <strong>DATA</strong>
+                <div class="metric-bar"><i style="--w:81%"></i></div>
+              </div>
+              <div class="metric">
+                <span>EMPLOYMENT</span>
+                <strong>DATA</strong>
+                <div class="metric-bar"><i style="--w:64%"></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cases">
+      <div class="section-heading reveal">
+        <p class="eyebrow">05 / USE CASE</p>
+        <h2>こんな場面で、<br /><span>データが使えます。</span></h2>
+      </div>
+
+      <div class="case-grid">
+        <article class="case-card reveal">
+          <div class="case-type">LOCAL GOVERNMENT</div>
+          <h3>自治体の政策・施設配置</h3>
+          <p>人口・地理・施設データなどを組み合わせ、施策検討や公共施設配置の判断材料をつくる。</p>
+          <div class="case-flow"><span>人口</span><b>×</b><span>地理</span><b>×</b><span>施設</span><b>→</b><em>判断</em></div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-type">SMALL BUSINESS</div>
+          <h3>中小企業の経営判断</h3>
+          <p>売上・顧客・商品データを可視化し、改善すべき領域や次の打ち手を考える。</p>
+          <div class="case-flow"><span>売上</span><b>×</b><span>顧客</span><b>×</b><span>商品</span><b>→</b><em>判断</em></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section insights" id="insights">
+      <div class="section-heading reveal">
+        <p class="eyebrow">06 / INSIGHTS</p>
+        <h2>東北を、<br /><span>データから考える。</span></h2>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card reveal">
+          <span>DATA / POPULATION</span>
+          <h3>東北の人口変化を、データで見る。</h3>
+          <p>公的統計を使って地域の変化を読み解くコンテンツを掲載予定です。</p>
+          <a href="#contact">COMING SOON <b>→</b></a>
+        </article>
+        <article class="insight-card reveal">
+          <span>DATA / BUSINESS</span>
+          <h3>人手不足は、数字でどう見えるのか。</h3>
+          <p>企業や地域が抱える課題を、データを起点に整理します。</p>
+          <a href="#contact">COMING SOON <b>→</b></a>
+        </article>
+        <article class="insight-card reveal">
+          <span>DATA / BASICS</span>
+          <h3>データ分析で、意思決定はどう変わる？</h3>
+          <p>データサイエンスを地域や企業で使うための考え方を紹介します。</p>
+          <a href="#contact">COMING SOON <b>→</b></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-grid reveal">
+        <div>
+          <p class="eyebrow">07 / CONTACT</p>
+          <h2>DATA CAN<br /><span>CHANGE TOHOKU.</span></h2>
+        </div>
+        <div class="contact-copy">
+          <p>データについて、少し話してみませんか？</p>
+          <p class="contact-sub">
+            自治体・企業のデータ活用、可視化、業務改善など、まずは課題の整理から。
+          </p>
+          <a class="button button-primary" href="mailto:YOUR-EMAIL@example.com">
+            お問い合わせ <span>→</span>
+          </a>
+          <small>※ 公開前に `YOUR-EMAIL@example.com` を実際の連絡先へ変更してください。</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand footer-brand">
+      <img src="./assets/logo.svg" alt="" width="42" height="42" />
+      <span><strong>TOHOKU DATA LAB</strong><small>東北データラボ</small></span>
+    </div>
+    <p>データで、東北の未来をつくる。</p>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> TOHOKU DATA LAB</span>
+      <a href="#top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
