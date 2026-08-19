@@ -49,8 +49,8 @@ tohoku-data-lab-v2/
 ├── 404.html
 ├── README.md
 └── assets/
-    ├── logo.svg
-    ├── favicon.svg
+    ├── logo.png
+    ├── favicon.png
     └── tohoku-outline.svg
 ```
 
