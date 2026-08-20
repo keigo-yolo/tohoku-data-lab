@@ -11,6 +11,7 @@
   <title>東北データラボ | TOHOKU DATA LAB</title>
   <link rel="icon" href="./assets/favicon-v3.png?v=3" type="image/png">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./contact-form.css">
 </head>
 <body>
   <canvas id="network" aria-hidden="true"></canvas>
@@ -178,129 +179,117 @@
     </section>
 
     <section class="section wrap" id="contact">
-  <div class="contact reveal">
-
-    <div>
-      <p class="eyebrow">06 / CONTACT</p>
-
-      <h2>
-        DATA CAN<br>
-        <span>CHANGE TOHOKU.</span>
-      </h2>
-    </div>
-
-    <div class="contact-copy">
-
-      <h3>
-        データについて、少し話してみませんか？
-      </h3>
-
-      <p>
-        自治体・企業のデータ活用、可視化、業務改善など、
-        まずは課題の整理から。
-      </p>
-
-      <form
-        class="contact-form"
-        action="https://formspree.io/f/xkjwyzwq"
-        method="POST"
-      >
-
-        <div class="form-group">
-          <label for="name">お名前</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="company">会社・団体名</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="email">メールアドレス</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="category">
-            お問い合わせ種別
-          </label>
-
-          <select
-            id="category"
-            name="category"
-            required
-          >
-            <option value="">
-              選択してください
-            </option>
-
-            <option value="data-analysis">
-              データ分析
-            </option>
-
-            <option value="visualization">
-              データ可視化
-            </option>
-
-            <option value="dx-ai">
-              DX・AI活用支援
-            </option>
-
-            <option value="other">
-              その他
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">
-            お問い合わせ内容
-          </label>
-
-          <textarea
-            id="message"
-            name="message"
-            rows="6"
-            required
-          ></textarea>
-        </div>
-
-        <input
-          type="text"
-          name="_gotcha"
-          style="display:none"
-        >
-
-        <button
-          type="submit"
-          class="button primary"
-        >
-          送信する <b>→</b>
-        </button>
-
-      </form>
-
-    </div>
-  </div>
-</section>
       <div class="contact reveal">
-        <div><p class="eyebrow">06 / CONTACT</p><h2>DATA CAN<br><span>CHANGE TOHOKU.</span></h2></div>
-        <div class="contact-copy"><h3>データについて、少し話してみませんか？</h3><p>自治体・企業のデータ活用、可視化、業務改善など、まずは課題の整理から。</p><a class="button primary" href="mailto:contact.t.datalab@gmail.com">お問い合わせ <b>→</b></a><small>※ 公開前に問い合わせ先メールアドレスを変更してください。</small></div>
+        <div class="contact-heading">
+          <p class="eyebrow">06 / CONTACT</p>
+          <h2>DATA CAN<br><span>CHANGE TOHOKU.</span></h2>
+          <p class="contact-intro">
+            自治体・企業のデータ活用、可視化、業務改善など、まずは課題の整理から。
+          </p>
+        </div>
+
+        <div class="contact-copy">
+          <h3>データについて、少し話してみませんか？</h3>
+          <p>
+            下記フォームからお問い合わせください。内容を確認のうえ、ご連絡します。
+          </p>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/xkjwyzwq"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="subject"
+              value="東北データラボ Webサイトからのお問い合わせ"
+            >
+
+            <div class="form-group">
+              <label for="name">
+                お名前 <span class="required">必須</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="例：山田 太郎"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="company">会社・団体名</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                autocomplete="organization"
+                placeholder="例：株式会社〇〇"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                メールアドレス <span class="required">必須</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="example@example.com"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="category">
+                お問い合わせ種別 <span class="required">必須</span>
+              </label>
+              <select id="category" name="category" required>
+                <option value="" selected disabled>選択してください</option>
+                <option value="データ分析">データ分析</option>
+                <option value="データ可視化">データ可視化</option>
+                <option value="DX・AI活用支援">DX・AI活用支援</option>
+                <option value="その他">その他</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">
+                お問い合わせ内容 <span class="required">必須</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                placeholder="ご相談内容や現在お困りのことをご記入ください。"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">この欄は入力しないでください</label>
+              <input
+                type="text"
+                id="website"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </div>
+
+            <p class="form-note">
+              送信いただいた情報は、お問い合わせへの対応・連絡のために使用します。
+            </p>
+
+            <button type="submit" class="button primary form-submit">
+              送信する <b>→</b>
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
