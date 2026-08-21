@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="東北データラボ — データ分析・可視化・AI活用で、東北の意思決定を支援します。">
+  <meta name="description" content="東北データラボ — 東北の企業・自治体が抱える課題を、データ分析・可視化・AI活用で整理し、次の意思決定につなげます。">
   <meta name="theme-color" content="#050b14">
   <meta property="og:title" content="東北データラボ | TOHOKU DATA LAB">
-  <meta property="og:description" content="データで、東北の未来をつくる。">
+  <meta property="og:description" content="その「なんとなく」を、データで「次の一手」に。">
   <meta property="og:type" content="website">
   <title>東北データラボ | TOHOKU DATA LAB</title>
   <link rel="icon" href="./assets/favicon-v3.png?v=3" type="image/png">
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./contact-form.css">
+  <link rel="stylesheet" href="./styles.css?v=4">
 </head>
 <body>
   <canvas id="network" aria-hidden="true"></canvas>
@@ -23,28 +22,40 @@
     </a>
     <button class="menu" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i></button>
     <nav class="nav">
-      <a href="#about">ABOUT</a>
+      <a href="#about">CHALLENGE</a>
       <a href="#services">SERVICES</a>
       <a href="#data-tohoku">DATA TOHOKU</a>
-      <a href="#insights">INSIGHTS</a>
-      <a class="nav-cta" href="#contact">CONTACT</a>
+      <a href="#flow">FLOW</a>
+      <a class="nav-cta" href="#contact">相談する</a>
     </nav>
   </header>
 
   <main>
     <section class="hero wrap">
       <div class="hero-copy reveal">
-        <p class="eyebrow"><i></i> DATA × TOHOKU × FUTURE</p>
-        <h1>東北を、<br><span>データでもっと強く。</span></h1>
-        <p class="lead">データ分析・可視化・AI活用によって、<br>地域と企業の意思決定を支援する。</p>
+        <p class="eyebrow"><i></i> DATA × TOHOKU × DECISION</p>
+        <h1>その「なんとなく」を、<br><span>次の一手に。</span></h1>
+        <p class="lead">
+          売上、人手不足、業務効率、地域課題。<br>
+          答えが見えないときこそ、データから考える。<br>
+          東北データラボは、課題整理から分析・可視化・AI活用まで、
+          意思決定につながる形を一緒に考えます。
+        </p>
+
+        <div class="hero-reassurance">
+          <span>START FROM ZERO</span>
+          <p>データが整理されていなくても、相談内容がまとまっていなくても大丈夫です。</p>
+        </div>
+
         <div class="hero-actions">
-          <a class="button primary" href="#data-tohoku">東北をデータで見る <b>→</b></a>
+          <a class="button primary" href="#contact">まずは課題を相談する <b>→</b></a>
           <a class="button ghost" href="#services">できることを見る</a>
         </div>
+
         <div class="hero-meta">
-          <div><small>FOCUS</small><strong>LOCAL DATA</strong></div>
+          <div><small>START</small><strong>課題整理から</strong></div>
+          <div><small>TARGET</small><strong>企業 / 自治体</strong></div>
           <div><small>AREA</small><strong>TOHOKU</strong></div>
-          <div><small>METHOD</small><strong>DATA / AI</strong></div>
         </div>
       </div>
 
@@ -52,46 +63,156 @@
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <img src="./assets/tohoku-outline.svg" alt="">
         <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span>
-        <div class="tag t1"><small>REGION</small><strong>TOHOKU</strong></div>
-        <div class="tag t2"><small>ANALYSIS</small><strong>ACTIVE</strong></div>
+        <div class="tag t1"><small>QUESTION</small><strong>WHAT NEXT?</strong></div>
+        <div class="tag t2"><small>DATA →</small><strong>NEXT ACTION</strong></div>
       </div>
     </section>
 
     <div class="ticker">
-      <div>DATA ANALYTICS <b>+</b> VISUALIZATION <b>+</b> AI <b>+</b> LOCAL ECONOMY <b>+</b> DX <b>+</b> TOHOKU <b>+</b> DATA ANALYTICS <b>+</b> VISUALIZATION <b>+</b> AI <b>+</b> LOCAL ECONOMY <b>+</b> DX <b>+</b> TOHOKU <b>+</b></div>
+      <div>課題整理 <b>+</b> DATA ANALYTICS <b>+</b> VISUALIZATION <b>+</b> AI <b>+</b> 意思決定 <b>+</b> TOHOKU <b>+</b> 課題整理 <b>+</b> DATA ANALYTICS <b>+</b> VISUALIZATION <b>+</b> AI <b>+</b> 意思決定 <b>+</b> TOHOKU <b>+</b></div>
     </div>
 
     <section class="section wrap" id="about">
-      <div class="heading reveal">
-        <p class="eyebrow">01 / WHY DATA</p>
-        <h2>地域の課題を、<br><span>見える形にする。</span></h2>
+      <div class="section-kicker reveal">
+        <p class="eyebrow">01 / YOUR CHALLENGE</p>
+        <p>データ活用のスタート地点は、「分析したい」ではなく「困っている」でも構いません。</p>
       </div>
+
+      <div class="heading reveal">
+        <h2>こんな「もやもや」、<br><span>ありませんか。</span></h2>
+      </div>
+
       <div class="problem-grid">
-        <article class="card reveal"><small>01</small><h3>人口・地域</h3><p>人口構造や地域特性をデータで捉え、施策検討の土台をつくります。</p><div class="bars"><i></i><i></i><i></i><i></i><i></i></div></article>
-        <article class="card reveal"><small>02</small><h3>人手・業務</h3><p>業務量やプロセスを可視化し、改善すべきポイントを明らかにします。</p><div class="pulse"><i></i><i></i><i></i><i></i><i></i></div></article>
-        <article class="card reveal"><small>03</small><h3>経営・産業</h3><p>売上・顧客・商品などのデータから、意思決定につながる示唆を抽出します。</p><svg class="spark" viewBox="0 0 220 70"><polyline points="0,58 36,48 68,53 107,28 145,35 220,8"/></svg></article>
-        <article class="card reveal"><small>04</small><h3>行政・DX</h3><p>データとデジタル技術を組み合わせ、より良い公共サービスを考えます。</p><div class="rings"><i></i><i></i><i></i></div></article>
+        <article class="card reveal">
+          <small>01 / BUSINESS</small>
+          <h3>数字はある。<br>でも、判断に使えていない。</h3>
+          <p>Excelやシステムにデータはあるものの、何を見ればよいか、どこから分析すべきか分からない。</p>
+          <div class="problem-signal"><span>DATA</span><i></i><em>?</em></div>
+        </article>
+
+        <article class="card reveal">
+          <small>02 / CAUSE</small>
+          <h3>変化の理由が、<br>見えてこない。</h3>
+          <p>売上、顧客、業務量などの変化は分かる。でも「なぜそうなったのか」が整理できていない。</p>
+          <div class="problem-signal"><span>CHANGE</span><i></i><em>WHY?</em></div>
+        </article>
+
+        <article class="card reveal">
+          <small>03 / DX & AI</small>
+          <h3>AIを使いたい。<br>でも、何から始める？</h3>
+          <p>ツール導入が目的にならないよう、まず業務課題とデータの状態から使いどころを考えたい。</p>
+          <div class="problem-signal"><span>AI</span><i></i><em>WHERE?</em></div>
+        </article>
+
+        <article class="card reveal">
+          <small>04 / REGION</small>
+          <h3>地域の課題を、<br>根拠から考えたい。</h3>
+          <p>人口、産業、観光などの公的データを、施策や事業を考えるための判断材料として使いたい。</p>
+          <div class="problem-signal"><span>TOHOKU</span><i></i><em>DECIDE</em></div>
+        </article>
+      </div>
+
+      <div class="message-band reveal">
+        <span>YOU DON'T NEED A PERFECT QUESTION.</span>
+        <strong>課題が曖昧なままでも、まずは整理するところから始められます。</strong>
+        <a href="#contact">相談してみる →</a>
       </div>
     </section>
 
     <section class="section wrap" id="services">
-      <div class="heading reveal">
+      <div class="section-kicker reveal">
         <p class="eyebrow">02 / SERVICES</p>
+        <p>「分析すること」ではなく、次の判断ができる状態をつくることを目的にします。</p>
+      </div>
+
+      <div class="heading reveal">
         <h2>データを、<br><span>行動につなげる。</span></h2>
       </div>
+
       <div class="services">
-        <article class="service reveal"><b class="icon">∑</b><small>SERVICE 01</small><h3>データ分析</h3><p>地域統計、売上、顧客、業務データなどを整理・分析し、課題の構造を明らかにします。</p><ul><li>現状分析・課題抽出</li><li>統計分析</li><li>KPI設計</li></ul></article>
-        <article class="service featured reveal"><b class="icon">◫</b><small>SERVICE 02</small><h3>データ可視化</h3><p>複雑なデータを、直感的に理解できるダッシュボードやレポートへ変換します。</p><ul><li>ダッシュボード</li><li>データストーリーテリング</li><li>定例レポート</li></ul></article>
-        <article class="service reveal"><b class="icon">⌘</b><small>SERVICE 03</small><h3>DX・AI活用支援</h3><p>業務課題を整理し、AIやデジタル技術を使うべきポイントを設計します。</p><ul><li>業務プロセス整理</li><li>AI活用検討</li><li>データ活用基盤づくり</li></ul></article>
+        <article class="service reveal">
+          <div class="service-top"><b class="icon">01</b><span>FIND</span></div>
+          <small>DATA ANALYTICS</small>
+          <h3>課題を見つける。</h3>
+          <p>売上・顧客・業務・地域統計などを整理し、現状と課題の構造を見える形にします。</p>
+          <ul>
+            <li>データ整理・現状把握</li>
+            <li>課題仮説の整理</li>
+            <li>統計分析・KPI設計</li>
+          </ul>
+          <div class="service-outcome"><small>OUTCOME</small><strong>「どこを見るべきか」が分かる</strong></div>
+        </article>
+
+        <article class="service featured reveal">
+          <div class="service-top"><b class="icon">02</b><span>SEE</span></div>
+          <small>VISUALIZATION</small>
+          <h3>判断できる形にする。</h3>
+          <p>複雑な数字を、経営や現場で共有しやすいダッシュボード・レポートへ変換します。</p>
+          <ul>
+            <li>ダッシュボード設計</li>
+            <li>グラフ・レポート作成</li>
+            <li>意思決定指標の可視化</li>
+          </ul>
+          <div class="service-outcome"><small>OUTCOME</small><strong>「次に何をするか」を話せる</strong></div>
+        </article>
+
+        <article class="service reveal">
+          <div class="service-top"><b class="icon">03</b><span>CHANGE</span></div>
+          <small>DX / AI SUPPORT</small>
+          <h3>業務を変える。</h3>
+          <p>AIありきではなく、業務課題と効果を整理したうえで、デジタル技術の使いどころを設計します。</p>
+          <ul>
+            <li>業務プロセス整理</li>
+            <li>AI・DX活用の検討</li>
+            <li>データ活用の運用設計</li>
+          </ul>
+          <div class="service-outcome"><small>OUTCOME</small><strong>「使える仕組み」に近づける</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap why-us" id="why-us">
+      <div class="heading reveal">
+        <p class="eyebrow">03 / OUR APPROACH</p>
+        <h2>分析だけで、<br><span>終わらせない。</span></h2>
+      </div>
+
+      <div class="principles">
+        <article class="principle reveal">
+          <span>01</span>
+          <div>
+            <small>START WITH THE PROBLEM</small>
+            <h3>「何を分析するか」の前から。</h3>
+            <p>相談内容が固まっていない段階でも、困りごと・目的・使えるデータを一緒に整理するところから考えます。</p>
+          </div>
+        </article>
+
+        <article class="principle reveal">
+          <span>02</span>
+          <div>
+            <small>MAKE IT UNDERSTANDABLE</small>
+            <h3>難しい分析を、分かる言葉で。</h3>
+            <p>専門用語を並べるのではなく、「何が分かったか」「何を判断できるか」が伝わる形を重視します。</p>
+          </div>
+        </article>
+
+        <article class="principle reveal">
+          <span>03</span>
+          <div>
+            <small>CONNECT TO ACTION</small>
+            <h3>結果を、次のアクションへ。</h3>
+            <p>分析結果を出して終わりではなく、施策・改善・運用につなげるための論点まで整理します。</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="data-section" id="data-tohoku">
       <div class="wrap data-layout reveal">
         <aside class="data-intro">
-          <p class="eyebrow">03 / DATA TOHOKU</p>
+          <p class="eyebrow">04 / DATA TOHOKU</p>
           <h2>東北を、<br><span>データで見る。</span></h2>
-          <p>東北6県を選び、公的統計の指標を切り替えて比較できます。数値だけでなく、出典まで一緒に確認できます。</p>
+          <p>「データをどう見せるか」の一例です。東北6県の公的統計を、指標を切り替えながら比較できます。数値だけでなく出典まで確認できます。</p>
 
           <div class="pref-buttons" aria-label="都道府県を選択">
             <button data-pref="aomori">青森</button>
@@ -162,15 +283,65 @@
     </section>
 
     <section class="section wrap usecases">
-      <div class="heading reveal"><p class="eyebrow">04 / USE CASE</p><h2>データで、<br><span>判断を変える。</span></h2></div>
+      <div class="heading reveal">
+        <p class="eyebrow">05 / USE CASE</p>
+        <h2>たとえば、こんな判断を<br><span>データで支える。</span></h2>
+      </div>
       <div class="cases">
-        <article class="case reveal"><small>LOCAL GOVERNMENT</small><h3>自治体の政策・施設配置</h3><p>人口・地理・施設データなどを組み合わせ、施策検討や公共施設配置の判断材料をつくる。</p><div><span>人口</span><b>×</b><span>地理</span><b>×</b><span>施設</span><b>→</b><em>判断</em></div></article>
-        <article class="case reveal"><small>SMALL BUSINESS</small><h3>中小企業の経営判断</h3><p>売上・顧客・商品データを可視化し、改善すべき領域や次の打ち手を考える。</p><div><span>売上</span><b>×</b><span>顧客</span><b>×</b><span>商品</span><b>→</b><em>判断</em></div></article>
+        <article class="case reveal"><small>LOCAL GOVERNMENT</small><h3>自治体｜施策・施設配置を考える</h3><p>人口・地理・施設データなどを組み合わせ、「どこに課題があるか」「どこを優先するか」を考える判断材料に。</p><div><span>人口</span><b>×</b><span>地理</span><b>×</b><span>施設</span><b>→</b><em>優先順位</em></div></article>
+        <article class="case reveal"><small>SMALL BUSINESS</small><h3>中小企業｜次の打ち手を考える</h3><p>売上・顧客・商品・業務データを可視化し、変化の要因や改善候補を整理して次の施策を考える材料に。</p><div><span>売上</span><b>×</b><span>顧客</span><b>×</b><span>業務</span><b>→</b><em>次の一手</em></div></article>
+      </div>
+    </section>
+
+    <section class="section flow-section" id="flow">
+      <div class="wrap">
+        <div class="flow-head reveal">
+          <div class="heading">
+            <p class="eyebrow">06 / CONSULTATION FLOW</p>
+            <h2>相談から、<br><span>次の一手まで。</span></h2>
+          </div>
+          <p>
+            最初から分析テーマを決める必要はありません。
+            まず課題を言葉にし、必要なデータと進め方を整理します。
+          </p>
+        </div>
+
+        <div class="flow-grid">
+          <article class="flow-step reveal">
+            <span>01</span>
+            <small>LISTEN</small>
+            <h3>相談</h3>
+            <p>現在のお困りごと、実現したいことを伺います。まだ曖昧でも構いません。</p>
+          </article>
+          <article class="flow-step reveal">
+            <span>02</span>
+            <small>DEFINE</small>
+            <h3>課題整理</h3>
+            <p>目的・仮説・使えるデータを整理し、何を確かめるべきかを明確にします。</p>
+          </article>
+          <article class="flow-step reveal">
+            <span>03</span>
+            <small>ANALYZE</small>
+            <h3>分析・可視化</h3>
+            <p>必要な分析を行い、結果を意思決定に使いやすい形で可視化します。</p>
+          </article>
+          <article class="flow-step reveal">
+            <span>04</span>
+            <small>ACT</small>
+            <h3>次のアクション</h3>
+            <p>分かったことを整理し、施策・改善・追加検証など次に考えるべきことにつなげます。</p>
+          </article>
+        </div>
+
+        <div class="flow-cta reveal">
+          <p><small>FIRST STEP</small>まずは、「今こんなことで困っている」だけでも構いません。</p>
+          <a class="button primary" href="#contact">相談内容を送る <b>→</b></a>
+        </div>
       </div>
     </section>
 
     <section class="section wrap" id="insights">
-      <div class="heading reveal"><p class="eyebrow">05 / INSIGHTS</p><h2>東北を、<br><span>データから考える。</span></h2></div>
+      <div class="heading reveal"><p class="eyebrow">07 / INSIGHTS</p><h2>データを、<br><span>身近な判断材料に。</span></h2></div>
       <div class="insights">
         <article class="insight reveal"><small>DATA / POPULATION</small><h3>東北の人口変化を、データで見る。</h3><p>公的統計を使って地域の変化を読み解きます。</p><a href="#data-tohoku">DATA TOHOKUへ →</a></article>
         <article class="insight reveal"><small>DATA / BUSINESS</small><h3>人手不足は、数字でどう見えるのか。</h3><p>企業や地域が抱える課題を、データを起点に整理します。</p><a href="#contact">COMING SOON →</a></article>
@@ -181,112 +352,82 @@
     <section class="section wrap" id="contact">
       <div class="contact reveal">
         <div class="contact-heading">
-          <p class="eyebrow">06 / CONTACT</p>
-          <h2>DATA CAN<br><span>CHANGE TOHOKU.</span></h2>
+          <p class="eyebrow">08 / CONTACT</p>
+          <h2>まだ、答えがなくても<br><span>相談できます。</span></h2>
           <p class="contact-intro">
-            自治体・企業のデータ活用、可視化、業務改善など、まずは課題の整理から。
+            「何を分析すればいいか分からない」
+            「AIで何かできないか知りたい」
+            「業務を少しでも良くしたい」。
+            そんな段階から、まずは課題を整理します。
           </p>
+
+          <div class="contact-prompts">
+            <span>こんな相談からでも</span>
+            <ul>
+              <li>社内データをどう活用できるか知りたい</li>
+              <li>数字を経営判断に使える形にしたい</li>
+              <li>AI・DXの始め方を整理したい</li>
+              <li>地域データを施策検討に使いたい</li>
+            </ul>
+          </div>
         </div>
 
         <div class="contact-copy">
-          <h3>データについて、少し話してみませんか？</h3>
-          <p>
-            下記フォームからお問い合わせください。内容を確認のうえ、ご連絡します。
-          </p>
+          <div class="contact-form-head">
+            <small>CONTACT FORM</small>
+            <h3>まずは、お困りごとを聞かせてください。</h3>
+            <p>内容が固まっていなくても大丈夫です。分かる範囲でご記入ください。</p>
+          </div>
 
           <form
             class="contact-form"
             action="https://formspree.io/f/xkjwyzwq"
             method="POST"
           >
-            <input
-              type="hidden"
-              name="subject"
-              value="東北データラボ Webサイトからのお問い合わせ"
-            >
+            <input type="hidden" name="subject" value="東北データラボ Webサイトからのお問い合わせ">
 
             <div class="form-group">
-              <label for="name">
-                お名前 <span class="required">必須</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                autocomplete="name"
-                placeholder="例：山田 太郎"
-                required
-              >
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="例：山田 太郎" required>
             </div>
 
             <div class="form-group">
               <label for="company">会社・団体名</label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                autocomplete="organization"
-                placeholder="例：株式会社〇〇"
-              >
+              <input type="text" id="company" name="company" autocomplete="organization" placeholder="例：株式会社〇〇">
             </div>
 
             <div class="form-group">
-              <label for="email">
-                メールアドレス <span class="required">必須</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autocomplete="email"
-                placeholder="example@example.com"
-                required
-              >
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="example@example.com" required>
             </div>
 
             <div class="form-group">
-              <label for="category">
-                お問い合わせ種別 <span class="required">必須</span>
-              </label>
+              <label for="category">お問い合わせ種別 <span class="required">必須</span></label>
               <select id="category" name="category" required>
                 <option value="" selected disabled>選択してください</option>
                 <option value="データ分析">データ分析</option>
                 <option value="データ可視化">データ可視化</option>
                 <option value="DX・AI活用支援">DX・AI活用支援</option>
+                <option value="自治体・地域データ活用">自治体・地域データ活用</option>
+                <option value="まだ決まっていない">まだ決まっていない</option>
                 <option value="その他">その他</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="message">
-                お問い合わせ内容 <span class="required">必須</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="7"
-                placeholder="ご相談内容や現在お困りのことをご記入ください。"
-                required
-              ></textarea>
+              <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" rows="7" placeholder="例：売上データはありますが、何を見れば改善につながるのか整理できていません。" required></textarea>
             </div>
 
             <div class="form-honeypot" aria-hidden="true">
               <label for="website">この欄は入力しないでください</label>
-              <input
-                type="text"
-                id="website"
-                name="_gotcha"
-                tabindex="-1"
-                autocomplete="off"
-              >
+              <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
             </div>
 
-            <p class="form-note">
-              送信いただいた情報は、お問い合わせへの対応・連絡のために使用します。
-            </p>
+            <p class="form-note">送信いただいた情報は、お問い合わせへの対応・連絡のために使用します。</p>
 
             <button type="submit" class="button primary form-submit">
-              送信する <b>→</b>
+              この内容で相談する <b>→</b>
             </button>
           </form>
         </div>
@@ -296,7 +437,7 @@
 
   <footer class="footer wrap">
     <a class="brand" href="#top"><img src="./assets/logo-v3.png?v=3" alt="東北データラボ" width="40" height="40"><span><strong>TOHOKU DATA LAB</strong><small>東北データラボ</small></span></a>
-    <p>データで、東北の未来をつくる。</p>
+    <p>その「なんとなく」を、データで「次の一手」に。</p>
     <div><span>© <span id="year"></span> TOHOKU DATA LAB</span><a href="#top">BACK TO TOP ↑</a></div>
   </footer>
 
